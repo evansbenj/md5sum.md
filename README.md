@@ -21,3 +21,8 @@ remove a site using a tab delimted file (chrXXX posXX). The carrot before the fi
 ```
 bcftools filter -T ^chr02a_99399031.exclude FandM_chr02a_BSQR_jointgeno_allsites_filtered_SNPsonly.vcf2.gz -o FandM_chr02a_BSQR_jointgeno_allsites_filtered_SNPsonly_no_chr02a_99399031.vcf.gz
 ```
+
+# touch files 
+```
+</scratch/scratch_to_delete/ben xargs -d'\n' touch
+```
