@@ -26,3 +26,12 @@ bcftools filter -T ^chr02a_99399031.exclude FandM_chr02a_BSQR_jointgeno_allsites
 ```
 </scratch/scratch_to_delete/ben xargs -d'\n' touch
 ```
+
+# fix permissions
+```
+cd ~/projects/
+chgrp -R rrg-ben rrg-ben/ben
+chgrp -R def-ben def-ben/ben
+chmod -R g+s rrg-ben/ben/
+chmod -R g+s def-ben/ben/
+```
