@@ -23,7 +23,7 @@ bcftools filter -T ^chr02a_99399031.exclude FandM_chr02a_BSQR_jointgeno_allsites
 
 # touch files 
 ```
-</scratch/scratch_to_delete/ben xargs -d'\n' touch
+</scratch_to_delete/ben xargs -d'\n' touch
 ```
 
 # fix permissions
