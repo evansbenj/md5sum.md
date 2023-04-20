@@ -49,3 +49,9 @@ Install packages:
 ```
 R CMD INSTALL -l '~/.local/R/4.2.2/' ggplot2_3.4.2.tar.gz
 ```
+
+# Downloading from SRA db
+```
+module load StdEnv/2020 gcc/9.3.0 'sra-toolkit/3.0.0'
+fasterq-dump SRR6347841 SRR6347842 SRR6347843 SRR6347844 SRR6347845 SRR6347846 SRR6347847 SRR6347848 SRR6347849 SRR6347850
+```
