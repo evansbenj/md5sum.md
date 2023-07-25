@@ -37,7 +37,11 @@ chmod -R g+s def-ben/ben/
 
 # Install R packages locally on computecanada
 
-Make a directory for packages for a specific version of R (currently 4.2.2):
+load R:
+```
+module load  StdEnv/2020 r/4.3.1
+```
+Make a directory for packages for a specific version of R (currently 4.3.1):
 ```
 mkdir -p ~/.local/R/$EBVERSIONR/
 ```
