@@ -51,7 +51,7 @@ export R_LIBS=~/.local/R/$EBVERSIONR/
 ```
 Install packages:
 ```
-R CMD INSTALL -l '~/.local/R/4.2.2/' ggplot2_3.4.2.tar.gz
+R CMD INSTALL -l '~/.local/R/4.3.1/' ggplot2_3.4.2.tar.gz
 ```
 
 # Downloading from SRA db
