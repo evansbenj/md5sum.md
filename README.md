@@ -53,6 +53,10 @@ Install packages:
 ```
 R CMD INSTALL -l '~/.local/R/4.3.1/' ggplot2_3.4.2.tar.gz
 ```
+or within R:
+```
+install.packages('tidyverse', dependencies=TRUE, type="source")
+```
 
 # Downloading from SRA db
 ```
