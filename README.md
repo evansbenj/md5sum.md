@@ -1,3 +1,9 @@
+# samtools quickcheck
+```
+samtools quickcheck -v *.bam > bad_bams.fofn   && echo 'all ok' || echo 'some files failed check, see bad_bams.fofn'
+```
+
+
 # md5sum.md
 ```
 md5sum *
