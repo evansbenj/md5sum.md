@@ -69,3 +69,7 @@ install.packages('tidyverse', dependencies=TRUE, type="source")
 module load StdEnv/2020 gcc/9.3.0 'sra-toolkit/3.0.0'
 fasterq-dump SRR6347841 SRR6347842 SRR6347843 SRR6347844 SRR6347845 SRR6347846 SRR6347847 SRR6347848 SRR6347849 SRR6347850
 ```
+# get max of column 4 in a file (file) with a header on the first line:
+```
+sed '1d' file |  awk '$4 > max { max = $4; output = $4 } END { print output }'
+```
