@@ -31,6 +31,13 @@ bcftools filter -T ^chr02a_99399031.exclude FandM_chr02a_BSQR_jointgeno_allsites
 ```
 </scratch/scratch_to_delete/ben xargs -d'\n' touch
 ```
+On beluga:
+```
+cut -f1 -d "," /scratch/to_delete/ben > temp.txt
+sed -i -e 's/"//g' temp.txt
+<temp.txt xargs -d'\n' touch
+```
+
 
 # fix permissions
 ```
