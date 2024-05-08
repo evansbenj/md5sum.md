@@ -80,3 +80,11 @@ fasterq-dump SRR6347841 SRR6347842 SRR6347843 SRR6347844 SRR6347845 SRR6347846 S
 ```
 sed '1d' file |  awk '$4 > max { max = $4; output = $4 } END { print output }'
 ```
+# Install python modules using pip
+```
+# to run pip
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+deactivate
+```
