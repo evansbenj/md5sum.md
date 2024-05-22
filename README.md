@@ -47,6 +47,11 @@ chgrp -R def-ben def-ben/ben
 chmod -R g+s rrg-ben/ben/
 chmod -R g+s def-ben/ben/
 ```
+# install perl modules
+```
+cpan
+> install File::ShareDir::Install
+```
 
 # Install R packages locally on computecanada
 
