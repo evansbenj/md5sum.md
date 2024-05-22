@@ -49,8 +49,8 @@ chmod -R g+s def-ben/ben/
 ```
 # install perl modules
 ```
-cpan
-> install File::ShareDir::Install
+module load perl/5.30.2
+cpan App::cpanminus
 ```
 
 # Install R packages locally on computecanada
