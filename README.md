@@ -50,7 +50,12 @@ chmod -R g+s def-ben/ben/
 # install perl modules
 ```
 module load perl/5.30.2
-cpan App::cpanminus
+cpan
+o conf mbuildpl_arg "--install_base ~/projects/rrg-ben/ben/perl5"
+o conf makepl_arg "PREFIX=~/projects/rrg-ben/ben/perl5"
+o conf prefs_dir "~/projects/rrg-ben/ben/.cpan/prefs"
+o conf commit
+install File::ShareDir::Install
 ```
 
 # Install R packages locally on computecanada
