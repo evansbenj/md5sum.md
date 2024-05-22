@@ -57,6 +57,10 @@ o conf prefs_dir "~/projects/rrg-ben/ben/.cpan/prefs"
 o conf commit
 install File::ShareDir::Install
 ```
+and now just this:
+```
+cpan install ExtUtils::MakeMaker
+```
 
 # Install R packages locally on computecanada
 
