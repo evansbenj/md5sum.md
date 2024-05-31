@@ -49,7 +49,7 @@ chmod -R g+s def-ben/ben/
 ```
 # install perl modules
 ```
-module load perl/5.30.2
+module load StdEnv/2020 perl/5.30.2
 cpan
 o conf mbuildpl_arg "--install_base ~/projects/rrg-ben/ben/perl5"
 o conf makepl_arg "PREFIX=~/projects/rrg-ben/ben/perl5"
