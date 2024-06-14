@@ -102,3 +102,12 @@ source venv/bin/activate
 pip install --upgrade pip
 deactivate
 ```
+# Uploading files to NCBI using aspera
+
+I previously have been using Fetch and Cyberduck but this takes forever because one needs to download files locally and then upload them to NCBI
+
+Instead best to use Aspera, which can be installed and run directly on computecanada:
+```
+https://docs.alliancecan.ca/wiki/Transferring_files_with_Aspera_Connect/ascp
+```
+
