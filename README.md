@@ -110,4 +110,8 @@ Instead best to use Aspera, which can be installed and run directly on computeca
 ```
 https://docs.alliancecan.ca/wiki/Transferring_files_with_Aspera_Connect/ascp
 ```
+This command worked for me, but only when I was logged into gra-dtn1 (and not graham):
 
+```
+ascp -i /home/ben/projects/rrg-ben/ben/aspera/aspera.openssh -QT -l100m -k1 -d /home/ben/projects/rrg-ben/ben/aspera/Silurana/ subasp@upload.ncbi.nlm.nih.gov:uploads/evansb_mcmaster.ca_QL5zT65r
+```
