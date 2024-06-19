@@ -102,6 +102,11 @@ source venv/bin/activate
 pip install --upgrade pip
 deactivate
 ```
+# getting quota for nearline
+```
+lfs quota -hg rrg-ben /nearline
+```
+
 # Uploading files to NCBI using aspera
 
 I previously have been using Fetch and Cyberduck but this takes forever because one needs to download files locally and then upload them to NCBI
