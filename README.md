@@ -33,7 +33,7 @@ cp /scratch/scratch_to_delete/ben temp
 sed -i 's/\/lustre04//g' temp
 cut -d"," -f1 temp > tempp
 sed -i 's/"//g' tempp
-</scratch/scratch_to_delete/ben xargs -d'\n' touch
+<tempp xargs -d'\n' touch
 ```
 On beluga:
 ```
