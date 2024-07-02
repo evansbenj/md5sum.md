@@ -29,6 +29,10 @@ bcftools filter -T ^chr02a_99399031.exclude FandM_chr02a_BSQR_jointgeno_allsites
 
 # touch files 
 ```
+cp /scratch/scratch_to_delete/ben temp
+sed -i 's/\/lustre04//g' temp
+cut -d"," -f1 temp > tempp
+sed -i 's/"//g' tempp
 </scratch/scratch_to_delete/ben xargs -d'\n' touch
 ```
 On beluga:
