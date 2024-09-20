@@ -124,3 +124,16 @@ This command worked for me, but only when I was logged into gra-dtn1 (and not gr
 ```
 ascp -i /home/ben/projects/rrg-ben/ben/aspera/aspera.openssh -QT -l100m -k1 -d /home/ben/projects/rrg-ben/ben/aspera/Silurana/ subasp@upload.ncbi.nlm.nih.gov:uploads/evansb_mcmaster.ca_QL5zT65r
 ```
+
+# Problems with group ownership
+
+First identify problem files:
+```
+lfs find ~/projects/*/ -group $USER
+```
+then for each one type this:
+```
+chown -h -R $USER:rrg-ben path_and_filename
+```
+where path_and_filename are the problem ones reported in the first command.  Additional details are here:
+https://docs.alliancecan.ca/wiki/Frequently_Asked_Questions#sbatch:_error:_Batch_job_submission_failed:_Socket_timed_out_on_send/recv_operation
