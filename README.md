@@ -66,6 +66,16 @@ and now just this:
 cpan install ExtUtils::MakeMaker
 ```
 
+# Install R packages from git
+I've had a few problems with pat requirements; try this first
+```
+gitcreds::gitcreds_delete()
+```
+and then this in RStudio:
+```
+remotes::install_github("https://github.com/clauswilke/colorblindr")
+```
+
 # Install R packages locally on computecanada
 
 load R:
