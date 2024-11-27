@@ -52,6 +52,12 @@ chmod -R g+s rrg-ben/ben/
 chmod -R g+s def-ben/ben/
 ```
 # install perl modules
+I think this works now:
+```
+module load StdEnv/2023 perl/5.36.1
+cpan install List::MoreUtils
+```
+this is the old version:
 ```
 module load StdEnv/2020 perl/5.30.2
 cpan
