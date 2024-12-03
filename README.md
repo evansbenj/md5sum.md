@@ -155,7 +155,11 @@ where path_and_filename are the problem ones reported in the first command.  Add
 https://docs.alliancecan.ca/wiki/Frequently_Asked_Questions#sbatch:_error:_Batch_job_submission_failed:_Socket_timed_out_on_send/recv_operation
 
 # Paste tab in terminal
-Type this to allow pasting of tabs in OSX terminal
+To temporarily allow pasting tabs in bash, run:
 ```
 bind '"\t":self-insert'
+```
+To re-enable tab completion, run:
+```
+bind '"\C-i":complete'
 ```
