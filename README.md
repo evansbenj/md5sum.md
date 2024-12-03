@@ -153,3 +153,9 @@ chown -h -R $USER:rrg-ben path_and_filename
 ```
 where path_and_filename are the problem ones reported in the first command.  Additional details are here:
 https://docs.alliancecan.ca/wiki/Frequently_Asked_Questions#sbatch:_error:_Batch_job_submission_failed:_Socket_timed_out_on_send/recv_operation
+
+# Paste tab in terminal
+Type this to allow pasting of tabs in OSX terminal
+```
+bind '"\t":self-insert'
+```
