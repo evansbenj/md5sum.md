@@ -169,5 +169,5 @@ bind '"\C-i":complete'
 [~] $ module load StdEnv/2023 python/3.13.2
 [~] $ virtualenv /home/$USER/my_venv
 [~] $ source /home/$USER/my_venv/bin/activate
-(my_venv) [~] $ pip install --install-option="--prefix=/home/ben/projects/rrg-ben/ben/2025_allo_PacBio_assembly/" git+https://github.com/deeptools/deepTools.git
+(my_venv) [~] $ pip install --config-settings="--prefix=/home/ben/projects/rrg-ben/ben/2025_allo_PacBio_assembly/" git+https://github.com/deeptools/deepTools.git
 ```
