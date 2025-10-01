@@ -71,6 +71,10 @@ and now just this:
 ```
 cpan install ExtUtils::MakeMaker
 ```
+# Install perl modules on laptop
+```
+sudo cpan Statistics::Descriptive
+```
 
 # Install R packages from git
 I've had a few problems with pat requirements; try this first
