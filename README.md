@@ -175,3 +175,8 @@ bind '"\C-i":complete'
 [~] $ source /home/$USER/my_venv/bin/activate
 (my_venv) [~] $ pip install --config-settings="--prefix=/home/ben/projects/rrg-ben/ben/2025_allo_PacBio_assembly/" git+https://github.com/deeptools/deepTools.git
 ```
+# Convert ora to fastq  
+```
+module load orad/2.6.1
+orad --ora-decompress true --ora-input <input_file>.fastq.ora --ora-reference /path/to/ora-reference --output-directory <output_directory>
+```
