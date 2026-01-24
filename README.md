@@ -133,6 +133,15 @@ lfs quota -hg rrg-ben /nearline
 
 # Uploading files to NCBI using aspera
 
+Best is now ncbi supports sftp. So we can do this directly from nibi. Navigate to a directory with all the fq.gz files and only these files Then type this (you will need the password provided by NCBI when the metadata were uploaded):
+```
+sftp subftp@sftp-private.ncbi.nlm.nih.gov
+sftp> cd uploads/evansb_mcmaster.ca_4GYExljV
+sftp> mkdir SUB123456_related_data
+sftp> cd SUB123456_related_data
+sftp> put *
+```
+
 I previously have been using Fetch and Cyberduck but this takes forever because one needs to download files locally and then upload them to NCBI
 
 Instead best to use Aspera, which can be installed and run directly on computecanada:
