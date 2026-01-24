@@ -136,6 +136,13 @@ lfs quota -hg rrg-ben /nearline
 I previously have been using Fetch and Cyberduck but this takes forever because one needs to download files locally and then upload them to NCBI
 
 Instead best to use Aspera, which can be installed and run directly on computecanada:
+
+Easiest to use a module 
+
+```
+ module load ascp/3.5.4
+```
+Or
 ```
 https://docs.alliancecan.ca/wiki/Transferring_files_with_Aspera_Connect/ascp
 ```
