@@ -1,3 +1,10 @@
+# Reheader for freebayes
+```
+samtools view -H fem_pygm_ELI1682_sorted_rg.bam > temp.sam
+sed -i 's/ID:4/ID:fem_pygm_ELI1682/g' temp.sam
+samtools reheader temp.sam fem_pygm_ELI1682_sorted_rg.bam > fem_pygm_ELI1682_sorted_rg_.bam
+```
+
 # samtools quickcheck
 ```
 samtools quickcheck -v *.bam > bad_bams.fofn   && echo 'all ok' || echo 'some files failed check, see bad_bams.fofn'
