@@ -5,6 +5,13 @@ sed -i 's/ID:4/ID:fem_pygm_ELI1682/g' temp.sam
 samtools reheader temp.sam fem_pygm_ELI1682_sorted_rg.bam > fem_pygm_ELI1682_sorted_rg_.bam
 ```
 
+# Parsetab after freebayes
+
+Need to swap out missing genotypes that look like this './' for ones that look like this './.'
+```
+sed -i 's/\.\/      /\.\/\. /g' cliv_WGS_mapped_to_clivref_multi_sample_results.vcf.gz.tab
+```
+
 # samtools quickcheck
 ```
 samtools quickcheck -v *.bam > bad_bams.fofn   && echo 'all ok' || echo 'some files failed check, see bad_bams.fofn'
