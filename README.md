@@ -9,8 +9,9 @@ samtools reheader temp.sam fem_pygm_ELI1682_sorted_rg.bam > fem_pygm_ELI1682_sor
 
 Need to swap out missing genotypes that look like this './' for ones that look like this './.'
 ```
-sed -i 's/\.\/      /\.\/\. /g' cliv_WGS_mapped_to_clivref_multi_sample_results.vcf.gz.tab
+sed -i 's/ \.\// \.\/\./g' cliv_WGS_mapped_to_clivref_multi_sample_results.vcf.gz.tab
 ```
+Remember to usw ctrl-v+tab to insert two tabs in the line above (before the first period in the search and in the replace)
 
 # samtools quickcheck
 ```
