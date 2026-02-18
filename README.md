@@ -6,6 +6,9 @@ samtools reheader temp.sam fem_pygm_ELI1682_sorted_rg.bam > fem_pygm_ELI1682_sor
 ```
 # Freebayes
 ```
+/home/ben/projects/rrg-ben/ben/2025_allo_PacBio_assembly/ben_scripts/2025_freebayes.sh
+```
+```
 #!/bin/sh
 #SBATCH --job-name=freebayes
 #SBATCH --nodes=1
