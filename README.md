@@ -4,6 +4,23 @@ samtools view -H fem_pygm_ELI1682_sorted_rg.bam > temp.sam
 sed -i 's/ID:4/ID:fem_pygm_ELI1682/g' temp.sam
 samtools reheader temp.sam fem_pygm_ELI1682_sorted_rg.bam > fem_pygm_ELI1682_sorted_rg_.bam
 ```
+# Freebayes
+```
+#!/bin/sh
+#SBATCH --job-name=freebayes
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=144:00:00
+#SBATCH --mem=32gb
+#SBATCH --output=freebayes.%J.out
+#SBATCH --error=freebayes.%J.err
+#SBATCH --account=rrg-ben
+
+module load freebayes/1.3.7
+
+# sbatch 2025_freebayes.sh ref listofbamz.txt > multi_sample_results.vcf
+freebayes -f ${1} -L ${2} --min-mapping-quality 30 --min-base-quality 20 --min-alternate-count 2 > multi_sample_results.vcf
+```
 
 # Parsetab after freebayes
 
