@@ -1,3 +1,9 @@
+# Get commandline using jobid
+```
+sacct -j <jobid> -o submitline -P
+```
+
+
 # Reheader for freebayes
 ```
 samtools view -H fem_pygm_ELI1682_sorted_rg.bam > temp.sam
