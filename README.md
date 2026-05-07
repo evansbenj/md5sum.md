@@ -237,3 +237,7 @@ bind '"\C-i":complete'
 module load orad/2.6.1
 orad --ora-decompress true --ora-input <input_file>.fastq.ora --ora-reference /path/to/ora-reference --output-directory <output_directory>
 ```
+# Count files in current directory
+```
+find . -type f | wc -l
+```
