@@ -233,6 +233,18 @@ bind '"\C-i":complete'
 (my_venv) [~] $ pip install --config-settings="--prefix=/home/ben/projects/rrg-ben/ben/2025_allo_PacBio_assembly/" git+https://github.com/deeptools/deepTools.git
 ```
 # Convert ora to fastq  
+
+download ora which has the refbin included. It is here:
+
+```
+/home/ben/projects/rrg-ben/ben/2026_fraseri_WGS/YWB8BY4/EVA35457.20260603/20260522_LH00600_0123_B23WKHVLT4/orad.2.7.0.linux
+```
+enter the directory and type this:
+```
+./orad --ora-reference oradata/ ../BJE4203_S122_L006_R1_001.fastq.ora
+```
+
+this did not work because can't find the refbin
 ```
 module load orad/2.6.1
 orad --ora-decompress true --ora-input <input_file>.fastq.ora --ora-reference /path/to/ora-reference --output-directory <output_directory>
