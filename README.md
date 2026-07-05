@@ -43,6 +43,11 @@ sed -i 's/ \.\// \.\/\./g' cliv_WGS_mapped_to_clivref_multi_sample_results.vcf.g
 ```
 Remember to usw ctrl-v+tab to insert two tabs in the line above (before the first period in the search and in the replace)
 
+# Show lines with >5 samples and Sex_specific_heteroz:
+```
+grep 'Sex_specific_het' temp.tab_parsetabout.txt |awk -F'\t' '$5 > 5 && $6 > 5'
+```
+
 # samtools quickcheck
 ```
 samtools quickcheck -v *.bam > bad_bams.fofn   && echo 'all ok' || echo 'some files failed check, see bad_bams.fofn'
