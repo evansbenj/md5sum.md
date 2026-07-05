@@ -3,6 +3,10 @@
 sacct -j <jobid> -o submitline -P
 ```
 
+# Get directory from which a job is submitted
+```
+scontrol show job <jobid>
+```
 
 # Reheader for freebayes
 ```
