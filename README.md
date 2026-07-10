@@ -8,6 +8,11 @@ sacct -j <jobid> -o submitline -P
 scontrol show job <jobid>
 ```
 
+# Get lines with values higher than some number in two columns
+```
+awk '$1 > 10 && $2 > 10' file.txt
+```
+
 # Reheader for freebayes
 ```
 samtools view -H fem_pygm_ELI1682_sorted_rg.bam > temp.sam
