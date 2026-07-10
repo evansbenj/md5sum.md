@@ -7,6 +7,10 @@ sacct -j <jobid> -o submitline -P
 ```
 scontrol show job <jobid>
 ```
+# rename a job
+```
+scontrol update job=123456 JobName=my_new_name
+```
 
 # Get lines with values higher than some number in two columns
 ```
