@@ -43,6 +43,11 @@ module load freebayes/1.3.7
 # sbatch 2025_freebayes.sh ref listofbamz.txt > multi_sample_results.vcf
 freebayes -f ${1} -L ${2} --min-mapping-quality 30 --min-base-quality 20 --min-alternate-count 2 > multi_sample_results.vcf
 ```
+# split up regions file for freebayes
+```
+lines=$(wc -l < scaffolds.fasta_regions.txt)
+split -d -l $(( (lines + 9) / 10 )) scaffolds.fasta_regions.txt part_
+```
 
 # Parsetab after freebayes
 
