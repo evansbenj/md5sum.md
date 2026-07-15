@@ -27,26 +27,79 @@ samtools reheader temp.sam fem_pygm_ELI1682_sorted_rg.bam > fem_pygm_ELI1682_sor
 ```
 /home/ben/projects/rrg-ben/ben/2025_allo_PacBio_assembly/ben_scripts/2025_freebayes.sh
 ```
+
+# split up regions file for freebayes
+You can see the max array size like this:
+```
+scontrol show config | grep MaxArraySize
+```
+On nibi, the MaxArraySize is 10000, so we need the regions file to be less than this.
+
+Make a regions file like this:
+```
+module load samtools
+samtools faidx reference
+module load freebayes/1.3.7
+fasta_generate_regions.py reference.fai 1000000 > regions.txt
+```
+Now use this command to make a bunch of smaller regions that will have the prefix "part_". You need to adjust the "109" and "110" so that the number of rows in each of the resulting part_ files is less than 10000 (the MaxArraySize).
+
+```
+lines=$(wc -l < regions.txt)
+split -d -l $(( (lines + 109) / 110 )) regions.txt part_
+```
+
+Before you run the script below, you need to make a bash variable that is equal to the number of rows in  your "part_" file:
+```
+N=$(wc -l < regions.txt)
+```
+Then you can run this script and no need to specify the length of the array because it is an environmental variable now:
+```
+sbatch ../../ben_scripts/2026_freebayez_array.sh ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.fasta bamfilez_list.txt part_9019
+```
+Here is the freebayes array script:
 ```
 #!/bin/sh
 #SBATCH --job-name=freebayes
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --time=144:00:00
-#SBATCH --mem=32gb
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=168:00:00
+#SBATCH --mem=16G
 #SBATCH --output=freebayes.%J.out
 #SBATCH --error=freebayes.%J.err
 #SBATCH --account=rrg-ben
 
 module load freebayes/1.3.7
 
-# sbatch 2025_freebayes.sh ref listofbamz.txt > multi_sample_results.vcf
-freebayes -f ${1} -L ${2} --min-mapping-quality 30 --min-base-quality 20 --min-alternate-count 2 > multi_sample_results.vcf
-```
-# split up regions file for freebayes
-```
-lines=$(wc -l < scaffolds.fasta_regions.txt)
-split -d -l $(( (lines + 9) / 10 )) scaffolds.fasta_regions.txt part_
+# make a regions file first in the same directory as you are launching the command like this:
+# module load samtools
+# samtools faidx reference
+# module load freebayes/1.3.7
+# fasta_generate_regions.py reference.fai 1000000 > regions.txt
+
+# Determine number of regions
+# N=$(wc -l < part_XXX.txt)
+
+# sbatch -array=1-${N} 2025_freebayes_parrallel.sh ref listofbamz.txt regions
+
+
+REF=$1
+BAMLIST=$2
+REGIONS=$3
+REGION=$(sed -n "${SLURM_ARRAY_TASK_ID}p" "$REGIONS")
+REGION_SAFE=$(echo "$REGION" | sed 's/:/_/g')
+echo "Processing region: $REGION"
+
+freebayes \
+    -f "$REF" \
+    -L "$BAMLIST" \
+    -r "$REGION" \
+    --min-mapping-quality 30 \
+    --min-base-quality 20 \
+    --min-alternate-count 2 \
+    > multi_sample_results_${REGION_SAFE}.vcf
+
 ```
 
 # Parsetab after freebayes
