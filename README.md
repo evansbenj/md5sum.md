@@ -14,7 +14,7 @@ scontrol update job=123456 JobName=my_new_name
 
 # Get lines with values higher than some number in two columns
 ```
-awk '$1 > 10 && $2 > 10' file.txt
+awk '$5 > 10 && $6 > 10' file.txt
 ```
 
 # Reheader for freebayes
