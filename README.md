@@ -345,3 +345,11 @@ Then I merged them like this:
 (echo ">merged_sequence"
 grep -h -v '^>' cliv_male_GCA_046118455.1_ASM4611845v1_genomic_scaffoldz_only.fa | tr -d '\n' | fold -w 80) > merged.fasta
 ```
+
+# making bed filez from ref with many scaffolds
+```
+sed -i 's/SN://g'  ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.bed
+sed -i 's/	LN:/	1	/g'  ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.bed
+split -n l/100 ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.bed
+```
+
