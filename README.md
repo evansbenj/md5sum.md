@@ -329,3 +329,19 @@ orad --ora-decompress true --ora-input <input_file>.fastq.ora --ora-reference /p
 ```
 find . -type f | wc -l
 ```
+# Merging small scaffolds
+
+For XC, there are several large scaffolds and many many small onez. I first make a file with only small ones like this:
+```
+grep -n "JBJNIE010000020.1" cliv_male_GCA_046118455.1_ASM4611845v1_genomic.fa
+```
+which told me that the scaffolds start on line 30143520
+and then
+```
+tail -n +30143520 cliv_male_GCA_046118455.1_ASM4611845v1_genomic.fa > cliv_male_GCA_046118455.1_ASM4611845v1_genomic_scaffoldz_only.fa
+```
+Then I merged them like this:
+```
+(echo ">merged_sequence"
+grep -h -v '^>' cliv_male_GCA_046118455.1_ASM4611845v1_genomic_scaffoldz_only.fa | tr -d '\n' | fold -w 80) > merged.fasta
+```
