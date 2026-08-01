@@ -351,6 +351,13 @@ The end position can match the dict file because the end position of the bed fil
 ```
 sed -i 's/SN://g'  ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.bed
 sed -i 's/	LN:/	0	/g'  ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.bed
+```
+subtract 1 from end coordinate and replace space:
+```
+awk '{$3=$3-1; print}' scaffolds.bed > tmp1 && mv tmp1 scaffolds.bed
+sed -i 's/ 0 /       0       /g' scaffolds.bed
+```
+```
 split -n l/100 ../Z23349_male_spades_assembly/Z23349_male_spades_assembly/scaffolds.bed part_
 ```
 
